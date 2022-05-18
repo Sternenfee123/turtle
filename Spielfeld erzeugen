@@ -1,0 +1,23 @@
+for (int zeile = 0; zeile < 4; zeile++) {
+      for (int spalte = 0; spalte < 6; spalte++) {
+        spielfeld1[zeile][spalte] = new Eisfläche(0, spalte, zeile);
+        spielfeld1[zeile][spalte].setLayoutX(80+spalte*70);
+        spielfeld1[zeile][spalte].setLayoutY(50+zeile*70);
+        spielfeld1[zeile][spalte].setPrefHeight(70);
+        spielfeld1[zeile][spalte].setPrefWidth(70);
+        spielfeld1[zeile][spalte].setDisable(true);
+        //spielfeld1[zeile][spalte].setStyle("-fx-background-color: blue;");          
+        root.getChildren().add(spielfeld1[zeile][spalte]);        
+      }
+    } 
+    
+    spielfeld1[2][3].setEisblockart(1);
+    spielfeld1[3][3].setEisblockart(1);
+    
+    for (int i = 0; i < 4; i++) {
+      for (int j = 0; j < 6; j++) {
+        if (spielfeld1[i][j].getEisblockart() == 1) { 
+          spielfeld1[i][j].setStyle("-fx-background-color: #55c7f1;"); 
+        }
+      }
+    }
