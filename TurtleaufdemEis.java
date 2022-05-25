@@ -25,12 +25,20 @@ public class TurtleaufdemEis extends Application {
   Pane root = new Pane();
   private Button button2 = new Button();
   private Button button3 = new Button();
+  static Turtle turtle1 = new Turtle();
+  private Button button4 = new Button();
+  private Button button5 = new Button();
+  private Button button6 = new Button();
+  private Button button7 = new Button();
+  private Label label1 = new Label();
+  private Button button8 = new Button();
+  private Label label2 = new Label();
   // Ende Attribute
   
   public void start(Stage primaryStage) { 
     
     
-    Scene scene = new Scene(root, 512, 64);
+    Scene scene = new Scene(root, 666, 452);
     // Anfang Komponenten
     
     button1.setLayoutX(12);
@@ -60,6 +68,69 @@ public class TurtleaufdemEis extends Application {
     );
     button3.setText("Level 3");
     root.getChildren().add(button3);
+    turtle1.setLayoutX(80);
+    turtle1.setLayoutY(50);
+    turtle1.setAnimated(true);
+    turtle1.setWidth(420);
+    turtle1.setHeight(280);
+    turtle1.setOriginX(34);
+    turtle1.setOriginY(38);
+    turtle1.setDisable(true);
+    turtle1.setVisible(false);
+    turtle1.setAnimationspeed(130);
+    root.getChildren().add(turtle1);
+    button4.setLayoutX(535);
+    button4.setLayoutY(331);
+    button4.setPrefHeight(57);
+    button4.setPrefWidth(59);
+    button4.setOnAction(
+    (event) -> {button4_Action(event);} 
+    );
+    root.getChildren().add(button4);
+    button5.setLayoutX(471);
+    button5.setLayoutY(387);
+    button5.setPrefHeight(57);
+    button5.setPrefWidth(59);
+    button5.setOnAction(
+    (event) -> {button5_Action(event);} 
+    );
+    root.getChildren().add(button5);
+    button6.setLayoutX(535);
+    button6.setLayoutY(387);
+    button6.setPrefHeight(57);
+    button6.setPrefWidth(59);
+    button6.setOnAction(
+    (event) -> {button6_Action(event);} 
+    );
+    root.getChildren().add(button6);
+    button7.setLayoutX(599);
+    button7.setLayoutY(387);
+    button7.setPrefHeight(57);
+    button7.setPrefWidth(59);
+    button7.setOnAction(
+    (event) -> {button7_Action(event);} 
+    );
+    root.getChildren().add(button7);
+    label1.setLayoutX(51);
+    label1.setLayoutY(346);
+    label1.setPrefHeight(20);
+    label1.setPrefWidth(118);
+    label1.setText("text");
+    root.getChildren().add(label1);
+    button8.setLayoutX(175);
+    button8.setLayoutY(385);
+    button8.setPrefHeight(25);
+    button8.setPrefWidth(75);
+    button8.setOnAction(
+    (event) -> {button8_Action(event);} 
+    );
+    root.getChildren().add(button8);
+    label2.setLayoutX(44);
+    label2.setLayoutY(384);
+    label2.setPrefHeight(20);
+    label2.setPrefWidth(126);
+    label2.setText("text");
+    root.getChildren().add(label2);
     // Ende Komponenten
     
     primaryStage.setOnCloseRequest(e -> System.exit(0));
@@ -241,6 +312,7 @@ public class TurtleaufdemEis extends Application {
     button1.setVisible(false);
     button2.setVisible(false);
     button3.setVisible(false);
+    turtle1.setVisible(true);
     //tade.Level1();
   } // end of button1_Action
 
@@ -257,6 +329,44 @@ public class TurtleaufdemEis extends Application {
     button2.setVisible(false);
     button3.setVisible(false);
   } // end of button3_Action
+
+  public void button4_Action(Event evt) {
+    turtle1.turnto(90);
+    turtle1.move(70);
+  } // end of button4_Action
+
+  public void button5_Action(Event evt) {
+    turtle1.turnto(180);
+    turtle1.move(70);
+  } // end of button5_Action
+
+  public void button6_Action(Event evt) {
+    turtle1.turnto(-90);
+    turtle1.move(70);
+  } // end of button6_Action
+
+  public void button7_Action(Event evt) {
+    for (int i = 0; i < 6; i++) {
+      if (spielfeld1[tade.LocationX()][i].getEisblockart() == 1) {
+        label1.setText("Verloren :(((((((((");
+        i = 300000;
+      } // end of if
+      
+      if (spielfeld1[tade.LocationX()][i].getEisblockart() == 2) {
+        label1.setText("Dumm?");
+        i = 300000;
+      } // end of if
+    }
+    
+    
+    turtle1.turnto(0);
+    turtle1.move(70);
+  } // end of button7_Action
+
+  public void button8_Action(Event evt) {
+    label1.setText("" + tade.LocationX());
+    label2.setText("" + tade.LocationY());
+  } // end of button8_Action
 
   // Ende Methoden
 } // end of class TurtleaufdemEis
