@@ -420,4 +420,40 @@ object TurtleaufdemEis: TFXGuiForm
     TextAlignment = _TA_LEFT
     WrapText = False
   end
+  object button9: TFXButton
+    Tag = 105
+    Left = 311
+    Top = 391
+    Width = 75
+    Height = 25
+    Hint = 'button9'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Dialog'
+    Font.Style = []
+    Foreground = clBlack
+    Background = clBtnFace
+    LayoutX = 311
+    LayoutY = 391
+    Disable = False
+    Cache = False
+    dragOver = ''
+    PrefHeight = 25
+    PrefWidth = 75
+    SnapToPixel = False
+    Alignment = CENTER
+    ContentDisplay = _CD_LEFT
+    EllipsisString = '...'
+    Underline = False
+    TextFill = 3355443
+    GraphicTextGap = 4
+    MnemonicParsing = False
+    Text = ''
+    TextAlignment = _TA_LEFT
+    WrapText = False
+    action = 'button9_Action'
+    CancelButton = False
+    DefaultButton = False
+  end
 end

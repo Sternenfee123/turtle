@@ -33,6 +33,7 @@ public class TurtleaufdemEis extends Application {
   private Label label1 = new Label();
   private Button button8 = new Button();
   private Label label2 = new Label();
+  private Button button9 = new Button();
   // Ende Attribute
   
   public void start(Stage primaryStage) { 
@@ -131,6 +132,14 @@ public class TurtleaufdemEis extends Application {
     label2.setPrefWidth(126);
     label2.setText("text");
     root.getChildren().add(label2);
+    button9.setLayoutX(311);
+    button9.setLayoutY(391);
+    button9.setPrefHeight(25);
+    button9.setPrefWidth(75);
+    button9.setOnAction(
+    (event) -> {button9_Action(event);} 
+    );
+    root.getChildren().add(button9);
     // Ende Komponenten
     
     primaryStage.setOnCloseRequest(e -> System.exit(0));
@@ -331,43 +340,113 @@ public class TurtleaufdemEis extends Application {
   } // end of button3_Action
 
   public void button4_Action(Event evt) {
+    for (int i = tade.LocationX(); i < 0; i--) {
+      if (spielfeld1[i][tade.LocationY()].getEisblockart() == 1) {
+        label1.setText("Verloren :(((((((((");
+        int x = tade.LocationX()-i;
+        i = 300000;
+        turtle1.turnto(90);
+        turtle1.move(70*x);
+        return;
+      } // end of if
+      
+      if (spielfeld1[i][tade.LocationY()].getEisblockart() == 2) {
+        label1.setText("Super!");
+        int y = tade.LocationX()-i-1;
+        i = 300000;
+        turtle1.turnto(90);
+        turtle1.move(70*y);
+        return;
+      } // end of if  
+    } 
     turtle1.turnto(90);
-    turtle1.move(70);
+    turtle1.move(70*10);
   } // end of button4_Action
 
   public void button5_Action(Event evt) {
-    turtle1.turnto(180);
-    turtle1.move(70);
-  } // end of button5_Action
-
-  public void button6_Action(Event evt) {
-    turtle1.turnto(-90);
-    turtle1.move(70);
-  } // end of button6_Action
-
-  public void button7_Action(Event evt) {
-    for (int i = 0; i < 6; i++) {
+    for (int i = tade.LocationY(); i < 0; i--) {
       if (spielfeld1[tade.LocationX()][i].getEisblockart() == 1) {
         label1.setText("Verloren :(((((((((");
+        int x = tade.LocationY()-i;
         i = 300000;
+        turtle1.turnto(180);
+        turtle1.move(70*x);
+        return;
       } // end of if
       
       if (spielfeld1[tade.LocationX()][i].getEisblockart() == 2) {
-        label1.setText("Dumm?");
+        label1.setText("Super!");
+        int y = tade.LocationY()-i-1;
         i = 300000;
+        turtle1.turnto(180);
+        turtle1.move(70*y);
+        return;
       } // end of if
     }
-    
-    
-    turtle1.turnto(0);
-    turtle1.move(70);
-  } // end of button7_Action
+    //turtle1.turnto(180);
+    //turtle1.move(70*10);
+  } // end of button5_Action
 
+  public void button6_Action(Event evt) {
+    for (int i = tade.LocationX(); i < 4; i++) {
+      if (spielfeld1[i][tade.LocationY()].getEisblockart() == 1) {
+        label1.setText("Verloren :(((((((((");
+        int x = i-tade.LocationX();
+        i = 300000;
+        turtle1.turnto(-90);
+        turtle1.move(70*x);
+        return;
+      } // end of if
+      
+      if (spielfeld1[i][tade.LocationY()].getEisblockart() == 2) {
+        label1.setText("Super!");
+        int y = (i-1)-tade.LocationX();
+        i = 300000;
+        turtle1.turnto(-90);
+        turtle1.move(70*y);
+        return;
+      } // end of if  
+    } 
+    turtle1.turnto(-90);
+    turtle1.move(70*10);
+  } // end of button6_Action                               
+
+  public void button7_Action(Event evt) {
+    for (int i = tade.LocationY(); i < 6; i++) {
+      if (spielfeld1[tade.LocationX()][i].getEisblockart() == 1) {
+        label1.setText("Verloren :(((((((((");
+        int x = i-tade.LocationY();
+        i = 300000;
+        turtle1.turnto(0);
+        //turtle1.setRotate(0);
+        turtle1.move(70*x);
+        return;
+      } // end of if
+      
+      if (spielfeld1[tade.LocationX()][i].getEisblockart() == 2) {
+        label1.setText("Super!");
+        int y = (i-1)-tade.LocationY();
+        i = 300000;
+        turtle1.turnto(0);
+        turtle1.move(70*y);
+        return;
+      } // end of if
+    }
+    turtle1.turnto(0);
+    turtle1.move(70*10);
+  } // end of button7_Action
+    
   public void button8_Action(Event evt) {
     label1.setText("" + tade.LocationX());
     label2.setText("" + tade.LocationY());
   } // end of button8_Action
+    
+  public void button9_Action(Event evt) {
+    turtle1.move(70*5);
+    turtle1.turnto(-90);
+    turtle1.move(70*3);
+  } // end of button9_Action
 
-  // Ende Methoden
+    // Ende Methoden
 } // end of class TurtleaufdemEis
 

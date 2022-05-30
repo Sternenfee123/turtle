@@ -25,12 +25,12 @@ public class Spiel {
     
   }
   
-  public int LocationX(){
+  public int LocationY(){
     int a = (int) TurtleaufdemEis.turtle1.getTurtleX()/70;
     return a;
   }
   
-  public int LocationY() {
+  public int LocationX() {
     int b = (int) (TurtleaufdemEis.turtle1.getTurtleY()/70)/-1;
     return b;
   }
